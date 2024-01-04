@@ -1,6 +1,6 @@
 <?php
     //méthode pour ajouter un roles en BDD
-    function addRoles($bdd,string $nom):void{
+    function addRoles(PDO $bdd,string $nom):void{
         try {
             $requete = $bdd->prepare('INSERT INTO roles(nom_roles) 
             VALUE (?)');
@@ -12,7 +12,7 @@
         }
     }
     //méthode pour chercher un roles par son nom (gérer les doublons)
-    function getRolesByName($bdd,string $nom){
+    function getRolesByName(PDO $bdd,string $nom){
         try {
             $requete = $bdd->prepare('SELECT id_roles,nom_roles FROM roles WHERE
             nom_roles = ?');
@@ -25,7 +25,7 @@
         }
     }
     //méthode pour chercher un roles par son nom (gérer les doublons)
-    function getRolesById($bdd,int $id){
+    function getRolesById(PDO $bdd,int $id){
         try {
             $requete = $bdd->prepare('SELECT id_roles FROM roles WHERE
             id_roles = ?');
