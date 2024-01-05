@@ -11,8 +11,8 @@
                 if($_POST["pass"] === $_POST["pass_verif"]){
                     if(empty(getUtilisateurByMail($bdd,$_POST["email"]))){
                         if(!empty($_FILES["img"]["tmp_name"])){
-                            move_uploaded_file($_FILES["img"]["tmp_name"], "./public/media".$_FILES["img"]["name"]);
-                            $img = "./public/media".$_FILES["img"]["name"];
+                            $img = "./public/media/".$_FILES["img"]["name"];
+                            move_uploaded_file($_FILES["img"]["tmp_name"], $img);
                         }
                         else{
                             $img = "./public/media/yann.jpg";
